@@ -1,0 +1,123 @@
+===CONVENTIONS===
+
+class names        - CamelCase
+class variables    - @@ two "at" signs, lowercase
+constants          - CamelCase (classes), Capital_Snake_Case (numbers)
+global variables   - $ dollar sign, lowercase
+instance variables - @ "at" sign, lowercase
+local variables    - snake_case
+method names       - snake_case; may end with !, ?, and =
+method parameters  - snake_case
+module names       - CamelCase
+
+NB: variables cannot start with a digit
+
+===TERMS===
+
+accessor method - read and write methods are defined for symbols via
+                  attr_accessor (attr_reader for read-only; attr_writer
+                  for write-only).
+array - holds a collection of object references which are indexed with
+        non-negative integers.
+array literal - a set of objects contained between square brackets used
+                to create and initialize a new array object.
+assignment - an equal sign (=) separates two values; the one on the left
+             is made to match the one on the right.
+attribute - externally visible facet of an object; can be accessed and 
+            manipulated
+bang method - ends with ! and modifies its receiver. "dangerous".
+block - chunk of code within braces (one line) or between 'do' and 'end' 
+        (multiple lines). it comes directly after method invocations and
+        their parameters. it takes parameters and denotes local
+        variables: |parameter, variable| and is invoked with the keyword
+        'yield'.
+CamelCase - it begins with an uppercase letter; words are divided by 
+            subsequent uppercase letters.
+closure - block-referenced variables in the surrounding scope are
+          accessible for the life of the block as well as the life of any
+          Proc object created by said block
+command expression - a string delimited by backquotes or %x is executed
+                     as a command by the user's OS.
+container - a class, such as a hash or an array, that groups items in a
+            convenient way
+delimiter - specification of a boundary.
+double quotes - ruby does more work; it looks for substitutions which
+                begin with backslashes and accounts for interpolation.
+                always use them unless you want backslashes, etc., to
+                show up in the output.
+encoding - output format of any given string; default is US-ASCII.
+Enumerable - a special module that implements external iterators as 
+             objects.
+escape - use of a backslash to break the convention of context, adding
+         meaning to "normal" characters (letters and digits), and
+         removing meaning from special characters (?, !, [, ], /, etc.)
+expression - any statement that returns a value.
+hash - holds a collection of object references which are indexed by any
+       object: strings, symbols, regular expressions, etc.
+hash literal - a set of objects contained between braces with two
+               objects for every entry: one is the key, and the other is
+               the value. keys must be unique and go to the left. the
+               value can be anything: a string, array, hash, etc.
+inheritance - a subclass ('child') is created as a refinement or
+              specialization of the superclass ('parent'). all
+              capabilities of the parent class (methods, instance
+              variables, etc.) are available to the child.
+interpolation - using #{stuff} to express functional code in the output.
+                it can be as simple as a variable, but methods can be
+                run within it as well, as in #{name.capitalize}
+iterator - method that invokes a block of code repeatedly, such as
+           returning successive elements from an array or hash, or
+           a series of derived values
+key - used to access an object containing multiple elements. for an
+      array, it must be an integer. for a hash, it can be anything.
+key value - in a hash, the reference used to store and retrieve an
+            object
+key value pair - an object and its referent key
+mixin - a module's functionality can be included in a class via keyword
+        'include'. class hierarchies are not impacted in any way
+module - a grouping of methods, classes, and/or constants. creates a
+         namespace and supports mixins.
+namespace - constants and methods can operate without interference from
+            objects with the same name from elsewhere in the program
+            (NB: this doesn't apply to instance variables)
+nil - a special object representing nothing.
+operator -  a special character or keyword used to manipulate data.
+parameter - an argument passed to a method or block.
+pattern - defined within a regular expression for matching and further
+          action.
+precedence - the level at which boolean operators are ordered and
+             applied.
+private method - available only within the context of the current
+                 object (self); cannot be accessed by any other object
+                 or receiver.
+proc - an object rendered from a block of code
+protected method - available only to objects within the defining class
+                   and its subclasses (within the family). used when
+                   objects must access the internal states of other
+                   objects within the same class
+public method - default, available to all users.
+receiver - an object upon which a method is executed; self is default.
+regular expression -  a pattern to be matched with any relevant string.
+regular expression literal - a pattern written between two forward
+                             slashes.
+scope - boundary of accessibility of any given variable.
+self - a reference to the current object.
+single quotes - print text as-is.
+snake_case - it begins with a lowercase letter; words are divided by
+             underscores.
+splat argument - use of an asterisk (*) to capture multiple arguments
+                 within a single parameter.
+statement modifier - use of keywords to add an enabling or disabling
+                     condition to a line of code (if, unless, while,
+                     etc.)
+string - a sequence of characters
+string literal - a sequence of characters between delimiters (single or
+                 double quotation marks).
+Struct - a data structure containing a set of attributes.
+symbols - unique constant names without a need to be predeclared.
+          begin with a colon. frequently used as hash keys.
+variable - holds a dynamic reference to an object
+virtual attribute - information which is not specifically mapped to a
+                    single instance variable, but rather synthesized
+                    from two or more. defined via a method ending in an
+                    equal sign (=)
