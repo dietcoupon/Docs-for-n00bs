@@ -1,6 +1,12 @@
-This was assembled from the infamous 15-minute Rails blog screencast by Ryan Bates. It was a ridiculously fast 15 minutes, and I found it pretty difficult to follow so I took the time to transcribe it. You can see the original screencast at http://media.rubyonrails.org/video/rails_blog_2.mov
+This was assembled from the infamous 15-minute Rails blog screencast by Ryan Bates. It was a ridiculously fast 15 
+minutes, and I found it pretty difficult to follow so I took the time to transcribe it. You can see the original 
+screencast at http://media.rubyonrails.org/video/rails_blog_2.mov
 
-It should also be noted that this was all done in Rails 2.2, which is kind of a thing of the past. If you happen to have the older Rails installed on your machine, this should work nicely for you. If all you have is Rails 3, what you see here is probably about 95% accurate, so be prepared for some debugging and call it good practice. If coding your own blog is akin to making your own light-saber, you're supposed to hit some snags along the way anyhow. Nothing ventured, nothing gained!
+It should also be noted that this was all done in Rails 2.2, which is kind of a thing of the past. If you happen to 
+have the older Rails installed on your machine, this should work nicely for you. If all you have is Rails 3, what you 
+see here is probably about 95% accurate, so be prepared for some debugging and call it good practice. If coding your 
+own blog is akin to making your own light-saber, you're supposed to hit some snags along the way anyhow. Nothing 
+ventured, nothing gained!
 
 Anyway, let's get right on to it.
 
@@ -232,15 +238,23 @@ properly. Feel free to comment out the tests for the posts controller for now; t
 Go back to the terminal window and run the 'rake test:functionals' command to actually execute the tests. The two 
 periods between the 'Started' and 'Finished' show that both tests were run.
 
-Congratulations! You should now have a functional blog. Note, however, that it is pretty ugly. If you can handle Ruby and Rails, CSS should be a piece of cake. Create a new file in public/stylesheets called stylesheet.css, and include (or adjust) the following code in app/views/posts.index.html.erb:
+Congratulations! You should now have a functional blog. Note, however, that it is pretty ugly. If you can handle Ruby 
+and Rails, CSS should be a piece of cake. Create a new file in public/stylesheets called stylesheet.css, and include 
+(or adjust) the following code in app/views/posts.index.html.erb:
 
 <%= stylesheet_link_tag "stylesheet" %>
 
-Dive right on in to your new stylesheet and adjust the appearance to your liking. If you're not sure of yourself, check out www.w3schools.com/css/default.asp for some CSS tags and syntax. You can also poke through your blog's pre-existing scaffold.css file to get some ideas.
+Dive right on in to your new stylesheet and adjust the appearance to your liking. If you're not sure of yourself, check 
+out www.w3schools.com/css/default.asp for some CSS tags and syntax. You can also poke through your blog's pre-existing 
+scaffold.css file to get some ideas.
 
-If we're bothering to make the blog pretty, we might want to be able to format the text of our posts as well. RedCloth is the standard Ruby Gem to accomplish this sort of thing. As well, you'll probably want to limit the number of posts that are loaded on every page. This is handled by the will_paginate gem. You can install these and include the dependencies at the top of your application_controller.rb file:
+If we're bothering to make the blog pretty, we might want to be able to format the text of our posts as well. RedCloth 
+is the standard Ruby Gem to accomplish this sort of thing. As well, you'll probably want to limit the number of posts 
+that are loaded on every page. This is handled by the will_paginate gem. You can install these and include the 
+dependencies at the top of your application_controller.rb file:
 
 require "RedCloth"
 require "will_paginate"
 
-You might think about surfing through rubygems.org to find other nifty little libraries that will make your blog all the snazzier. You might even think about using Bundler to manage them when they become unwieldy.
+You might think about surfing through rubygems.org to find other nifty little libraries that will make your blog all 
+the snazzier. You might even think about using Bundler to manage them when they become unwieldy.
