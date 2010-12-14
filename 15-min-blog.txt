@@ -122,7 +122,8 @@ We now want to add commenting functionality, so get back to the command prompt. 
 a post_id column to link comments to a specific post, and a body to display text by entering 'ruby script/generate 
 scaffold comment post_id:integer body:text'. As always, run the migration with 'rake db:migrate'.
 
-Now that we have two models, we need to associate them with each other. Going into post.rb, after the validation, we add a line of code:
+Now that we have two models, we need to associate them with each other. Going into post.rb, after the validation, we 
+add a line of code:
  
   has_many :comments
   
