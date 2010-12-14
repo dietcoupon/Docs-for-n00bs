@@ -14,9 +14,12 @@ NB: variables cannot start with a digit
 
 ===TERMS===
 
-accessor method - read and write methods are defined for symbols via
-                  attr_accessor (attr_reader for read-only; attr_writer
-                  for write-only).
+accessor method - a small, simple method defined so as to retrieve 
+                  information about (or the state of) a given object;
+                  attr_accessor :symbol is the Ruby syntax to create
+                  two methods for @symbol, one to retrieve its value
+                  and one to set it. we can also use attr_reader for 
+                  read-only and attr_writer for write-only.
 array - holds a collection of object references which are indexed with
         non-negative integers.
 array literal - a set of objects contained between square brackets used
@@ -25,12 +28,12 @@ assignment - an equal sign (=) separates two values; the one on the left
              is made to match the one on the right.
 attribute - externally visible facet of an object; can be accessed and 
             manipulated
-bang method - ends with ! and modifies its receiver. "dangerous".
+bang method - ends with ! and modifies its receiver. "dangerous."
 block - chunk of code within braces (one line) or between 'do' and 'end' 
         (multiple lines). it comes directly after method invocations and
         their parameters. it takes parameters and denotes local
         variables: |parameter, variable| and is invoked with the keyword
-        'yield'.
+        'yield.'
 CamelCase - it begins with an uppercase letter; words are divided by 
             subsequent uppercase letters.
 closure - block-referenced variables in the surrounding scope are
@@ -51,6 +54,8 @@ Enumerable - a special module that implements external iterators as
 escape - use of a backslash to break the convention of context, adding
          meaning to "normal" characters (letters and digits), and
          removing meaning from special characters (?, !, [, ], /, etc.)
+exception - raised when code is uncomputable. catchable by means of a
+            begin/rescue statement.
 expression - any statement that returns a value.
 hash - holds a collection of object references which are indexed by any
        object: strings, symbols, regular expressions, etc.
@@ -62,6 +67,10 @@ inheritance - a subclass ('child') is created as a refinement or
               specialization of the superclass ('parent'). all
               capabilities of the parent class (methods, instance
               variables, etc.) are available to the child.
+instance variables - each instance of a given object will have its own
+                     copies of these initialized variables. outside of
+                     that object, we need an accessor method to get at
+                     them.
 interpolation - using #{stuff} to express functional code in the output.
                 it can be as simple as a variable, but methods can be
                 run within it as well, as in #{name.capitalize}
@@ -73,10 +82,13 @@ key - used to access an object containing multiple elements. for an
 key value - in a hash, the reference used to store and retrieve an
             object
 key value pair - an object and its referent key
-mixin - a module's functionality can be included in a class via keyword
-        'include'. class hierarchies are not impacted in any way
+mixin - a way to reference the methods a module makes available to any
+        class that includes it. the module itself may be called a mixin.
 module - a grouping of methods, classes, and/or constants. creates a
-         namespace and supports mixins.
+         namespace and supports mixins. available for use via 
+         'include Module' syntax. like a superclass, but a class can use
+         infinitely many modules (as opposed to the one superclass).
+         likewise, the class hierarchy remains unaffected.
 namespace - constants and methods can operate without interference from
             objects with the same name from elsewhere in the program
             (NB: this doesn't apply to instance variables)
@@ -107,6 +119,10 @@ snake_case - it begins with a lowercase letter; words are divided by
              underscores.
 splat argument - use of an asterisk (*) to capture multiple arguments
                  within a single parameter.
+stack - data structure that organizes the linear functionality of a
+        program. after a subroutine is called and executed, the stack
+        returns control to where it should go within the program. aka
+        call stack, function stack, run-time stack.
 statement modifier - use of keywords to add an enabling or disabling
                      condition to a line of code (if, unless, while,
                      etc.)
@@ -114,8 +130,14 @@ string - a sequence of characters
 string literal - a sequence of characters between delimiters (single or
                  double quotation marks).
 Struct - a data structure containing a set of attributes.
+subclass, superclass - a child-parent relationship in which the given
+                       subclass inherits the functionality of the
+                       superclass in its definition (code):
+                       class Subclass < Superclass
 symbols - unique constant names without a need to be predeclared.
           begin with a colon. frequently used as hash keys.
+thread - a block of code to be run is passed to a Thread.new call. the
+         code runs concurrently with other processes.
 variable - holds a dynamic reference to an object
 virtual attribute - information which is not specifically mapped to a
                     single instance variable, but rather synthesized
