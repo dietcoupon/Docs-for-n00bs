@@ -1,4 +1,6 @@
-Just two for now:
+I've been writing these docs for myself both to aid the learning process and to keep around for handy references. Why not share them?
+
+How to use Git is a short introduction followed by a cheat-sheet style list of common Git commands and how to use them. Git (and other version control) tutorials can be overly confusing, so I've tried to reduce it down to a reasonable, easily-digestible amount of information.
 
 Ruby for dummies is a compilation of terms and conventions gleaned from myriad Ruby books and refined via googling. As a novice, it can be difficult to communicate or understand what's going on in a language without a proper understanding of the assumed common vocabulary and knowledge. This doc serves as a handy cheat-sheet-type reference of Ruby's internal structure and some of its syntax.
 

@@ -1,0 +1,269 @@
+===N2K===
+
+Git is a version control system (VCS), similar to Subversion and the like. 
+Each project's version control is maintained via a .git folder that lives 
+in the folder that contains all of the project code.  Git is said to have 
+a tree structure with a main "branch" called master (similar to Subversion's 
+"trunk." tree...trunk...get it?). All other branches are named by the user 
+according to their needs, diverging from the branch from which they were 
+created and existing completely independently. New branches are useful for 
+coding new features and experimenting, so one can play around while assuring 
+that the code for deployment remains untouched.
+
+After initializing a repository, the general workflow is to edit code and/or 
+files, stage all the files that have been added or altered, and commit them.
+Files must be staged for commit; if a file isn't staged, its addition and/or
+changes will not be applied to the commit. The commit saves a snapshot of the 
+code as it existed at that time. Git thus maintains a sort of timeline of a 
+project, and we can access any point of it at any time we like.
+
+Git is, of course, the VCS used to maintain and share code on GitHub. 
+Obviously, a deep familiarity with the commands at your disposal will make
+collaboration and contribution significantly easier. 
+
+This list is by no means comprehensive, but it's enough to do most of what 
+you'll need. I've tried to organize the commands in a logical way, but 
+others may disagree. Feel free to hit me up at tracy.cogsdill@gmail.com with 
+any suggestions you may have.
+
+===BASICS===
+
+git init
+-creates a new .git folder in the given directory (a "local repository"). 
+you only do it once ever for any given project/repository.
+
+git config --global (attribute) "(specification)"
+-sets the default value for a given aspect of git
+
+git help config
+-displays all configuration parameters
+
+git config --global --list
+-displays all current configurations
+
+git status
+-see which files have been changed, and which have been staged. even though 
+git can see when files have been changed, they still need to be staged before 
+they can be committed. we do this with...
+
+git add (filename)
+-add this file to the staging area
+
+git add .
+-add everything in this folder that is not ignored and either changed or new 
+to the staging area
+
+git add -i
+-launches interactive mode. follow the prompts and drive with numbers. update 
+stages something, revert unstages something, patch gives the user more detail, 
+and the handy help section covers all the rest.
+
+git commit -m 'commit message'
+-the actual commit. it just does it locally; it doesn't talk to the server at 
+this time
+
+git commit -m "commit message" -a
+-commits all changes without the step of adding the changed files to the 
+staging area
+
+heroku create
+-a new heroku app is created
+
+git push heroku master
+-your code is put on heroku's servers. the first branch is called master.
+
+===COLLABORATION===
+
+git clone (url)
+-you generally get the cloning url from the project page on github. this will 
+copy the repository (and, thus, the project) to your machine. this is a full 
+clone, so you can use commands like 'git log' to see the changes that have 
+been made to it, etc.
+
+when you're cloning somebody else's repository, you generally use the git:// 
+protocol. you can also use the http:// protocol; it's less efficient, but 
+github supports it and  it works. if you're cloning your own repository, it'll 
+be git@ instead; this indicates that it's an SSH repository. that means we 
+have write access and can push back up to it.
+
+git clone (url) (new local name)
+-this clones the directory as well, but places it into a folder with the 
+specified name (as opposed to the given default name)
+
+git remote add (alias) (remote repository)
+-establish an alias for a remote repository url, generally one that you use 
+frequently
+
+git remote rm (alias)
+-remove an alias
+
+git fetch
+-fetch whatever changes have been made to a remote repository (origin)
+
+git fetch (remote repository)
+-fetch changes from a remote repository other than origin
+
+git pull (remote repository)
+-fetch changes from a remote repository and merge them into the current 
+working branch
+
+git push
+-pushes the current working branch to its counterpart on the remote repository 
+(origin)
+
+(refspec)
+-can be a branch, tag, or special keyword (such as HEAD). specifies what to 
+push or where to push it. to push mybranch onto the remote master, for example, 
+write mybranch:master.
+
+git push (remote repository) (refspec)
+-pushes the specified branch or version to the specified branch in the given 
+remote repository
+
+git blame (filename)
+-shows who changed the given file, and at what time/date
+
+(place)
+-can be line numbers, which can either be separated by commas, or otherwise a 
+range with a starting number followed by a comma and +/-N. can also be a 
+regular expression contained within double-quotes.
+
+git blame -L (place) (filename)
+-shows who's responsible for the code at the given lines of the given file
+
+===ORGANIZATION===
+
+git branch (new branch name)
+-creates a new branch
+
+git branch (new branch name) (old branch name/release number)
+-creates a new copy of your code so you can start work on a branch for a new 
+feature, experimentation, parallel development, etc. master is the default 
+name of the original to branch from. often the new branch starts with RB, as 
+in RB_1.0, to indicate it's a Release Branch. note that an RB shouldn't exist 
+for too long, only until the release is ready to be tagged and shipped (you 
+can then make a new RB based on the last tag).
+
+git branch
+-lists all branches in a repository. the branch that is currently checked out 
+(the branch you are currently using) is denoted by an asterisk.
+
+git branch -m (old branch name) (new branch name)
+-renames a branch
+
+git branch -d (branch name)
+-deletes the specified branch
+
+git checkout (branch name)
+-switches between branches
+
+git checkout -b (new branch name) (optional other branch name)
+-create and change over to a branch which is created from the current branch or, 
+optionally, the branch specified in the command
+
+git checkout (tag)
+-return to the tagged state of the repository. note that this is not a valid 
+branch (you may want to use checkout -b to make a new one)
+
+git rebase (other branch)
+-takes the changes from the other branch and replays them on top of the branch 
+you are in. kind of like a merge.
+
+git merge (branch name)
+-facilitates a straight merge of the specified branch into the current working 
+branch (straight merge pulls the entire history of one branch into another)
+
+git merge --squash (branch name)
+-facilitates a squashed commit of the specified branch onto the the current 
+working branch (squashed commits apply all commits of one branch into a single 
+commit to another). the changes are staged, but not committed.
+
+git cherry-pick (commit name[7-digit hash])
+-applies only the specified commit (from another branch) to the current working 
+branch
+
+git cherry-pick -n (commit name[7-digit hash])
+-stages the change from the specified commit onto the current working branch, 
+but does not commit. this is so we can cherry pick multiple commits from other 
+branches for a single commit onto the current working branch. commit without -m 
+as the commit message defaults to whatever commit messages were originally used.
+
+git mergetool
+-opens the merge tool specified in the configuration for the user to resolve the 
+conflict manually
+
+git blame -M (filename)
+-detects lines that have been moved or copied around within the same file
+
+git blame -C -C (copied file)
+-displays any lines that have been copied between files, along with commit name 
+and the name of the copied file
+
+===HISTORY===
+
+git tag
+-view a list of all the tags in a given repository
+
+git tag (version number) (branch name)
+-marks a specific point in the history of the code for easy reference
+
+git tag (branch or commit)/(version number) (branch or commit)
+-tags the latest commit of the given branch, or the specified commit
+
+git log
+-see a record of all the changes you've committed to a repository
+
+git log --pretty=oneline
+-see a record of commit messages only
+
+git log (commit name[7-digit hash])
+-view the change record starting at the given revision
+
+(range of commits)
+-can be specified multiple ways. a period of time, such as 30 minutes, 5 hours, 
+8 days, or 2 months is valid. almost any english means of specifying a date is 
+supported as well. one may also specify a range of revisions with the "(oldest 
+commit name)..(newest commit name)" syntax; note that the oldest revision listed 
+will not be included in the output. tags may be used in place of commit names.
+
+^
+-follows a commit name or tag, acts like a minus one (denotes the change prior 
+to the change specified). ^^ is two commits before, etc.
+
+~N
+-like the caret, written differently. 18f822e~5 is the commit made five commits 
+before commit 18f822e. can be mixed with carets if desired.
+
+HEAD
+-synonymous with the latest revision of the current working branch
+
+git log --since="(range of commits)"
+-view all changes since the specified period of time
+
+git log --since="(range of commits)"
+-view all changes from before the specified period of time
+
+git log --pretty=format:"%h %s" (range of commits)
+-%h %s tells git to display short hashes and the first line of the commit log 
+(generally, the subject)
+
+git diff
+-see the changes in your working tree that haven't yet been staged or committed
+
+git diff --cached
+-see the differences between what's in your staging area and what's been 
+committed already
+
+git diff (commit name)
+-see the differences between everything in the working tree (including the 
+staging area) and the given commit
+
+git diff --stat (commit name)
+-prints statistics about the changes that have been made
+
+git mv (old filename) (new filename)
+-to "move" a file, the contents of the old file are placed into a new file 
+named as specified. the old file is then deleted. this is preferable to doing 
+the dirty work in the computer's file system, and using git to add a file and 
+rm another that no longer exists. remember that this needs to be staged and 
+committed.
