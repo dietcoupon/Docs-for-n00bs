@@ -66,12 +66,6 @@ git commit -m "commit message" -a
 -commits all changes without the step of adding the changed files to the 
 staging area
 
-heroku create
--a new heroku app is created
-
-git push heroku master
--your code is put on heroku's servers. the first branch is called master.
-
 ===COLLABORATION===
 
 git clone (url)
