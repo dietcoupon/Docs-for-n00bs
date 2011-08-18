@@ -1,7 +1,5 @@
-I've been writing these docs for myself both to aid the learning process and to keep around for handy references. Why not share them?
+I wrote these docs for myself both to aid the learning process and to keep around for handy references. Why not share them?
 
 How to use Git is a short introduction followed by a cheat-sheet style list of common Git commands and how to use them. Git (and other version control) tutorials can be overly confusing, so I've tried to reduce it down to a reasonable, easily-digestible amount of information.
 
 Ruby for dummies is a compilation of terms and conventions gleaned from myriad Ruby books and refined via googling. As a novice, it can be difficult to communicate or understand what's going on in a language without a proper understanding of the assumed common vocabulary and knowledge. This doc serves as a handy cheat-sheet-type reference of Ruby's internal structure and some of its syntax.
-
-The 15 minutes blog is a text-based adaptation of the lauded screencast. To create a blog in 15 minutes was an artificiality, as the code was often pasted in and ill-explained, passing by the screen too quickly for much more than to notice it's there. Paradoxically, the screencast veered to concepts which are useful for making a rails application for sure, but were more irrelevant for the task at hand. It was nearly impossible to apply the content as it was presented, so converting it to text demystifies the process and presents the same information in a more useful way.
