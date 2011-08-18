@@ -21,10 +21,15 @@ Git is, of course, the VCS used to maintain and share code on GitHub.
 Obviously, a deep familiarity with the commands at your disposal will make
 collaboration and contribution significantly easier. 
 
-This list is by no means comprehensive, but it's enough to do most of what 
-you'll need. I've tried to organize the commands in a logical way, but 
-others may disagree. Feel free to hit me up at tracy.cogsdill@gmail.com with 
-any suggestions you may have.
+This list is not quite comprehensive, but it's enough to do most of what you'll 
+need. I've tried to organize the commands in a logical way. Under each heading, 
+relevant commands are listed (almost all of them begin with git) with brief 
+descriptions underneath. Where commands take parameters, descriptions of what 
+the command needs to have passed are enclosed within parentheses in the proper 
+spot in the command.
+
+Feel free to hit me up at tracy.cogsdill@gmail.com with any questions or 
+suggestions you may have.
 
 ===BASICS===
 
@@ -58,11 +63,11 @@ git add -i
 stages something, revert unstages something, patch gives the user more detail, 
 and the handy help section covers all the rest.
 
-git commit -m 'commit message'
+git commit -m 'put a commit message here'
 -the actual commit. it just does it locally; it doesn't talk to the server at 
 this time
 
-git commit -m "commit message" -a
+git commit -m "put a commit message here" -a
 -commits all changes without the step of adding the changed files to the 
 staging area
 
