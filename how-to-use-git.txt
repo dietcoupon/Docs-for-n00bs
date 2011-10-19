@@ -242,7 +242,6 @@ git log --since="(range of commits)"
 git log --since="(range of commits)"
 -view all changes from before the specified period of time
 
-git log --pretty=format:"%h %s" (range of commits)
 -%h %s tells git to display short hashes and the first line of the commit log 
 (generally, the subject)
 
@@ -266,3 +265,14 @@ named as specified. the old file is then deleted. this is preferable to doing
 the dirty work in the computer's file system, and using git to add a file and 
 rm another that no longer exists. remember that this needs to be staged and 
 committed.
+
+===UNDO===
+
+git reset --hard HEAD
+-returns entire working tree to the last committed state. useful if the working tree is messed up but the changes haven't been committed.
+
+git revert (bad commit/HEAD)
+-creates a new commit which undoes the changes since the specified commit
+
+git revert HEAD^
+-attempts to undo the change before last, while leaving intact the changes made since the bad commit. if there is a conflict, changes must be resolved manually (as in a merge)

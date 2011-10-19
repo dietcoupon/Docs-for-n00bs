@@ -12,6 +12,22 @@ module names       - CamelCase
 
 NB: variables cannot start with a digit
 
+
+===OPERATORS===
+
+** !  ~  *  /  %  +  -  &  
+<< >> |  ^  >  >= <  <= <=>
+|| != =~ !~ && += -= == ===
+.. ... not and or
+ 
+===KEYWORDS===
+
+alias   and     BEGIN   begin   break   case    class   def     defined 
+do      else    elsif   END     end     ensure  false   for     if 
+in      module  next    nil     not     or      redo    rescue  retry 
+return  self    super   then    true    undef   unless  until   when 
+while   yield
+
 ===TERMS===
 
 accessor method - a small, simple method defined so as to retrieve 
@@ -82,6 +98,7 @@ key - used to access an object containing multiple elements. for an
 key value - in a hash, the reference used to store and retrieve an
             object
 key value pair - an object and its referent key
+lambda - closure
 mixin - a way to reference the methods a module makes available to any
         class that includes it. the module itself may be called a mixin.
 module - a grouping of methods, classes, and/or constants. creates a
@@ -102,7 +119,8 @@ precedence - the level at which boolean operators are ordered and
 private method - available only within the context of the current
                  object (self); cannot be accessed by any other object
                  or receiver.
-proc - an object rendered from a block of code
+proc -  almost exactly like a block, but it is an object and can thus
+        be saved.
 protected method - available only to objects within the defining class
                    and its subclasses (within the family). used when
                    objects must access the internal states of other
